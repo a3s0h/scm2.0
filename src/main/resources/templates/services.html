@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    This is services page
+
+    
+
+
+    <!-- loading fragments from base.html -->
+     <!-- first we'll insert  -->
+    <div class="parent-class" th:insert="~{base :: parent('one','two')}">
+        <div>parent text here for insert testing!</div>
+    </div>
+
+
+    <!-- for replacing  -->
+    <!-- <div class="parent-class" th:replace="~{base :: parent}">
+        <div>parent text here for insert testing!</div>
+    </div> -->
+
+    <!-- inserting the markup fragment  -->
+     <div th:replace="~{base :: content_frag(~{::section})}">
+        <section>
+            <h1>This is section that is being loaded</h1>
+        </section>
+        
+     </div>
+
+     <div th:replace="~{base :: content_frag(~{::.secondFrag})}">
+        <!-- we can load using ids and classes too  -->
+        <section id="firstFrag">This is passed by id section </section>
+        <section class="secondFrag">This is passed by class section </section>
+     </div>
+
+
+     <!-- div for showing is user logged in or not -->
+     <div th:replace="${isLogin} ? ~{base :: test(~{::.logIn})} : ~{base :: test(~{::.logOut})} ">
+            <section class="logIn">
+                <h1>User is logged in </h1>
+            </section>
+
+            <section class="logOut">
+                <h1>User is not logged in</h1>
+            </section>
+     </div>
+
+
+
+
+</body>
+</html>

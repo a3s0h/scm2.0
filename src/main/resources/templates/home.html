@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Document</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+</head>
+<body>
+    <h1 class="text-4xl text-green-700">home here</h1>
+    <!-- to use dynamic data here we use thyme leaf that we added 
+        now to use it we just add an attrubute data-th-text="${name of the key you set}" 
+        th is for thyme leaf
+    -->
+    <h1 data-th-text="${name}"></h1>
+    <p>You tube channel : <span data-th-text="${YoutubeChannel}"></span></p>
+    <p>Link to Git hub Repo : <span data-th-text="${GithubRepo}"></span></p>
+    <!-- <a data-th-href="https://google.com">click to redirect</a> -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+</body>
+</html>
