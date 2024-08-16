@@ -4,6 +4,9 @@ package com.scm.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 // # now ye controller bn chuka ha and ab ye request ko handel krr skta ha 
@@ -31,5 +34,28 @@ public class PageController {
         model.addAttribute("isLogin", false);  // passing temporary value
         return "services";
     }
+
+    // @RequestMapping("/contact")
+    // public String contactPage()
+    // {
+    //     return "contact";
+    // }
+    // lets make with diff approach
+
+    @GetMapping("/contact")
+    public String contact() {
+        return new String("contact");
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return new String("login");
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return new String("register");
+    }
+    
 
 }
