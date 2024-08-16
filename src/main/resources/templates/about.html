@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content} , ~{::title} , ~{::script}) }">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About</title>
 </head>
 <body>
-    This is about page
+    <div id="content">
+        <h1>Welcome to about page</h1>
+    </div>
 
-    <!-- inserting fragment form base.html 
-        base is file name and inside that we want parent fragment from there 
-    -->
-        <!-- we can pass html markups also in teh fragment  -->
-    <div th:insert="~{base :: parent('about','page')}"></div>
 
+    <!-- we can make any number of script tag as we know and when 
+     we pass as argument to fragment then all of them will go there 
+
+     how cool!!
+      -->
+    <script>
+        console.log("hello world!! , this is script from about page");
+    </script>
+    <script>
+        console.log("This is second script tag");
+    </script>
 </body>
 </html>

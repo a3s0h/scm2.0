@@ -1,27 +1,44 @@
-<!-- now we'll create fragment 
- these are reusable parts that you can either insert into a 
- div or any otehr tag 
- or just replace it fully  
--->
+<!DOCTYPE html>
+<!-- pure html ko hi fragment bna diya  -->
+<html lang="en" th:fragment="parent(content,title,script)" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">Base page</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
 
-<div th:fragment="parent(x,y)">
-    <h1>This is parent fragment loaded</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate minima vel molestias adipisci, voluptatem optio molestiae quaerat. Necessitatibus, quisquam dignissimos?</p>
-    <p>The value of x : <span th:text="${x}"></span></p>
-    <p>The value of y : <span th:text="${y}"></span></p>
-</div>
-
-<!-- now we'll make a fragment which takes contents or markups  -->
-<!-- user tilde(~) when laoding form a fragment files , else u can just use ${} to load while using insert or replace look below how we are laoding the content using replace 
- but in services.html we have user ~(tilde) because we are loading form the fragment file specifically 
-  -->
-<div th:fragment="content_frag(content)">
-    <h1>Fragment for testing markups</h1>
-    <div th:replace="${content}"></div>
-</div>
+    <!-- common header -->
+     <ul class="p-4 flex gap-7">
+        <li>
+            <a data-th-href="@{'/home'}">Home</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/services'}">Services</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/about'}">About</a>
+        </li>
+     </ul>
 
 
-<!-- testing fragement for login or not -->
- <div th:fragment="test(content)">
-    <div th:replace="${content}"></div>
- </div>
+    <!-- Main content -->
+
+    <div class="p-4">
+        <section th:replace="${content}"></section>
+    </div>
+
+
+
+    <!-- common footer  -->
+    <footer class="p-4">
+        footer : Learn java with me!!
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <th:block data-th-replace="${script}"></th:block>
+</body>
+</html>
